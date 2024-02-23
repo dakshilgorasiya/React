@@ -13,6 +13,7 @@ export default function User() {
 }
 
 export const githubInfoLoader = async () => {
-    const response = await fetch('https://api.github.com/users/dakshilgorasiya');
-    return response.json();
+    // const response = await fetch('https://api.github.com/users/dakshilgorasiya');
+    // return response.json(); 
+    return fetch('https://api.github.com/users/dakshilgorasiya').then((res)=>res.json())
 }
