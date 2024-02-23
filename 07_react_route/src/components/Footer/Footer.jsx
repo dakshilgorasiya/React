@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Footer() {
     return (
@@ -22,17 +22,32 @@ export default function Footer() {
                             </h2>
                             <ul className="text-gray-500 font-medium">
                                 <li className="mb-4">
-                                    <Link to="/" className="hover:underline">
+                                    <NavLink
+                                        to="/"
+                                        className={({ isActive }) =>
+                                            `${
+                                                isActive
+                                                    ? "text-orange-700"
+                                                    : "text-gray-700"
+                                            } `
+                                        }
+                                    >
                                         Home
-                                    </Link>
+                                    </NavLink>
                                 </li>
                                 <li>
-                                    <Link
+                                    <NavLink
                                         to="/about"
-                                        className="hover:underline"
+                                        className={({ isActive }) =>
+                                            `${
+                                                isActive
+                                                    ? "text-orange-700"
+                                                    : "text-gray-700"
+                                            } `
+                                        }
                                     >
                                         About
-                                    </Link>
+                                    </NavLink>
                                 </li>
                             </ul>
                         </div>
@@ -43,8 +58,14 @@ export default function Footer() {
                             <ul className="text-gray-500 font-medium">
                                 <li className="mb-4">
                                     <a
-                                        href="https://github.com/hiteshchoudhary"
-                                        className="hover:underline"
+                                        href="https://github.com/dakshilgorasiya"
+                                        className={({ isActive }) => {
+                                            `hover:underline ${
+                                                isActive
+                                                    ? `text-orange-700`
+                                                    : `text-gray-500`
+                                            }`;
+                                        }}
                                         target="_blank"
                                         rel="noreferrer"
                                     >
@@ -52,7 +73,16 @@ export default function Footer() {
                                     </a>
                                 </li>
                                 <li>
-                                    <Link to="/" className="hover:underline">
+                                    <Link
+                                        to="#"
+                                        className={({ isActive }) => {
+                                            `hover:underline ${
+                                                isActive
+                                                    ? `text-orange-700`
+                                                    : `text-gray-500`
+                                            }`;
+                                        }}
+                                    >
                                         Discord
                                     </Link>
                                 </li>
@@ -85,7 +115,7 @@ export default function Footer() {
                             href="https://hiteshchoudhary.com/"
                             className="hover:underline"
                         >
-                            hiteshchoudhary
+                            dakshilgorasiya
                         </a>
                         . All Rights Reserved.
                     </span>
