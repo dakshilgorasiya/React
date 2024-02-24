@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import UserContext from "../context/UserContext";
 
 export default function Login() {
@@ -10,7 +10,7 @@ export default function Login() {
         e.preventDefault();
         setUser({ username, password });
     };
-
+    
     return (
         <>
             <h2>Login</h2>

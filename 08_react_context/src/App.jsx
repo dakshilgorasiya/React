@@ -9,7 +9,7 @@ function App() {
             <UserContextProvider>
                 <h1>React context</h1>
                 <Login />
-                {/* <Dashboard /> */}
+                <Dashboard />
             </UserContextProvider>
         </>
     );
