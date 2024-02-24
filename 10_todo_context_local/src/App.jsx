@@ -21,17 +21,20 @@ function App() {
 
     const toggleCompleted = (id) => {
         setTodos((prev) =>
-            prev.map((todo) =>
-                todo.id === id
-                    ? { ...prevtodo, completed: prevTodo.completed }
-                    : todo
-            )
+            prev.map((todo) => {
+                return todo.id === id
+                    ? { ...todo, completed: !todo.completed }
+                    : todo;
+            })
         );
     };
 
     useEffect(() => {
-        const todos = JSON.parse(localStoreage.getItem("todos"));
-        setTodos(todos);
+        const todos = JSON.parse(localStorage.getItem("todos"));
+
+        if (todos && todos.length > 0) {
+            setTodos(todos);
+        }
     }, []);
 
     useEffect(() => {
@@ -42,7 +45,6 @@ function App() {
         <TodoProvider
             value={{ todos, addTodo, updateTodo, deleteTodo, toggleCompleted }}
         >
-            <h1>Hi</h1>
             <div className="bg-[#172842] min-h-screen py-8">
                 <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
                     <h1 className="text-2xl font-bold text-center mb-8 mt-2">
@@ -52,9 +54,9 @@ function App() {
                     <div className="mb-4">{/* Todo form goes here */}</div>
                     <div className="flex flex-wrap gap-y-3">
                         {/*Loop and Add TodoItem here */}
-                        {todos.map((todo) => (
-                            <div key={todo.id} className="w-full">
-                                <TodoItem todo={todo} />
+                        {todos.map((t) => (
+                            <div key={t.id}>
+                                <TodoItem todo={t} />
                             </div>
                         ))}
                     </div>
