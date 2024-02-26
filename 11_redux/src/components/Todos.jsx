@@ -6,7 +6,7 @@ function Todos() {
     const todos = useSelector(state => state.todos)
     const dispatch = useDispatch()
 
-  return (
+  return ( 
     <>
     <div>Todos</div>
     <ul className="list-none">
